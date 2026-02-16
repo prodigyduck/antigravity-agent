@@ -13,6 +13,7 @@ import operator
 # 환경 변수 로드
 load_dotenv()
 
+
 # 1. 브라우저 도구 설정 (Playwright Tool)
 # Agent가 웹사이트를 실제로 방문해서 구조를 볼 수 있게 합니다.
 browser = create_sync_playwright_browser(headless=True)
@@ -112,7 +113,7 @@ workflow.add_edge("coder", END)
 app = workflow.compile()
 
 # 7. 실행 함수
-def run_antigravity_agent(user_requirement: str, url: str):
+def run_antigravity_agent(user_requirement: str, url: str) -> str:
     print(f"🚀 [Antigravity] Vibe Coding 시작... 목표: {user_requirement}")
     
     initial_state = {
@@ -132,6 +133,8 @@ def run_antigravity_agent(user_requirement: str, url: str):
         print("   실행 명령: python generated_test.py")
     else:
         print("\n⚠️ 코드를 생성하지 못했습니다.")
+    
+    return code
 
 if __name__ == "__main__":
     import argparse
